@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B10593AA2B892D9900452868 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B10593A92B892D9900452868 /* Welcome.storyboard */; };
+		B10593AC2B896C5800452868 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10593AB2B896C5800452868 /* WelcomeViewController.swift */; };
+		B10593AE2B896C6300452868 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10593AD2B896C6300452868 /* LoginViewController.swift */; };
+		B10593B02B896C6B00452868 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10593AF2B896C6B00452868 /* RegisterViewController.swift */; };
+		B10593B32B89726000452868 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B10593B22B89726000452868 /* Home.storyboard */; };
 		B1CBACCD2B8928F700A01E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBACCC2B8928F700A01E75 /* AppDelegate.swift */; };
 		B1CBACCF2B8928F700A01E75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBACCE2B8928F700A01E75 /* SceneDelegate.swift */; };
 		B1CBACD12B8928F700A01E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBACD02B8928F700A01E75 /* ViewController.swift */; };
@@ -19,6 +23,10 @@
 /* Begin PBXFileReference section */
 		617C143C88118DF882C92CCE /* Pods-PlatziTweets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlatziTweets.debug.xcconfig"; path = "Target Support Files/Pods-PlatziTweets/Pods-PlatziTweets.debug.xcconfig"; sourceTree = "<group>"; };
 		B10593A92B892D9900452868 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		B10593AB2B896C5800452868 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		B10593AD2B896C6300452868 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B10593AF2B896C6B00452868 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B10593B22B89726000452868 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		B1CBACC92B8928F700A01E75 /* PlatziTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlatziTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CBACCC2B8928F700A01E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1CBACCE2B8928F700A01E75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +82,7 @@
 		B10593A72B892D6400452868 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B10593B12B89725500452868 /* Home */,
 				B10593A82B892D7A00452868 /* Welcome */,
 			);
 			path = Modules;
@@ -83,8 +92,19 @@
 			isa = PBXGroup;
 			children = (
 				B10593A92B892D9900452868 /* Welcome.storyboard */,
+				B10593AB2B896C5800452868 /* WelcomeViewController.swift */,
+				B10593AD2B896C6300452868 /* LoginViewController.swift */,
+				B10593AF2B896C6B00452868 /* RegisterViewController.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		B10593B12B89725500452868 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B10593B22B89726000452868 /* Home.storyboard */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		B1CBACC02B8928F700A01E75 = {
@@ -178,6 +198,7 @@
 				B1CBACD92B8928F800A01E75 /* LaunchScreen.storyboard in Resources */,
 				B1CBACD62B8928F800A01E75 /* Assets.xcassets in Resources */,
 				B10593AA2B892D9900452868 /* Welcome.storyboard in Resources */,
+				B10593B32B89726000452868 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +252,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1CBACD12B8928F700A01E75 /* ViewController.swift in Sources */,
+				B10593AC2B896C5800452868 /* WelcomeViewController.swift in Sources */,
 				B1CBACCD2B8928F700A01E75 /* AppDelegate.swift in Sources */,
+				B10593B02B896C6B00452868 /* RegisterViewController.swift in Sources */,
+				B10593AE2B896C6300452868 /* LoginViewController.swift in Sources */,
 				B1CBACCF2B8928F700A01E75 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
