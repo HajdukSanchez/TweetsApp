@@ -23,6 +23,9 @@
 		B10593C82B89764200452868 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10593C72B89764200452868 /* Post.swift */; };
 		B10593CA2B89764900452868 /* PostLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10593C92B89764900452868 /* PostLocation.swift */; };
 		B10593CC2B89782B00452868 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10593CB2B89782B00452868 /* EndPoints.swift */; };
+		B14C2D9D2B8CB50400E1B06D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C2D9C2B8CB50400E1B06D /* HomeViewController.swift */; };
+		B14C2DA12B8CB59D00E1B06D /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C2D9F2B8CB59D00E1B06D /* TweetTableViewCell.swift */; };
+		B14C2DA22B8CB59D00E1B06D /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14C2DA02B8CB59D00E1B06D /* TweetTableViewCell.xib */; };
 		B1CBACCD2B8928F700A01E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBACCC2B8928F700A01E75 /* AppDelegate.swift */; };
 		B1CBACCF2B8928F700A01E75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBACCE2B8928F700A01E75 /* SceneDelegate.swift */; };
 		B1CBACD12B8928F700A01E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBACD02B8928F700A01E75 /* ViewController.swift */; };
@@ -49,6 +52,9 @@
 		B10593C72B89764200452868 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B10593C92B89764900452868 /* PostLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocation.swift; sourceTree = "<group>"; };
 		B10593CB2B89782B00452868 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		B14C2D9C2B8CB50400E1B06D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B14C2D9F2B8CB59D00E1B06D /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		B14C2DA02B8CB59D00E1B06D /* TweetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
 		B1CBACC92B8928F700A01E75 /* PlatziTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlatziTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CBACCC2B8928F700A01E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1CBACCE2B8928F700A01E75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,7 +132,9 @@
 		B10593B12B89725500452868 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B14C2D9E2B8CB58300E1B06D /* Cells */,
 				B10593B22B89726000452868 /* Home.storyboard */,
+				B14C2D9C2B8CB50400E1B06D /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -162,6 +170,15 @@
 				B10593C32B89761E00452868 /* LoginRequest.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		B14C2D9E2B8CB58300E1B06D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B14C2D9F2B8CB59D00E1B06D /* TweetTableViewCell.swift */,
+				B14C2DA02B8CB59D00E1B06D /* TweetTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		B1CBACC02B8928F700A01E75 = {
@@ -252,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14C2DA22B8CB59D00E1B06D /* TweetTableViewCell.xib in Resources */,
 				B1CBACD92B8928F800A01E75 /* LaunchScreen.storyboard in Resources */,
 				B1CBACD62B8928F800A01E75 /* Assets.xcassets in Resources */,
 				B10593AA2B892D9900452868 /* Welcome.storyboard in Resources */,
@@ -313,6 +331,8 @@
 				B1CBACD12B8928F700A01E75 /* ViewController.swift in Sources */,
 				B10593C02B89760400452868 /* PostRequest.swift in Sources */,
 				B10593BC2B8975EE00452868 /* GeneralResponse.swift in Sources */,
+				B14C2DA12B8CB59D00E1B06D /* TweetTableViewCell.swift in Sources */,
+				B14C2D9D2B8CB50400E1B06D /* HomeViewController.swift in Sources */,
 				B10593BE2B8975FA00452868 /* RegisterRequest.swift in Sources */,
 				B10593C62B89763A00452868 /* User.swift in Sources */,
 				B10593AC2B896C5800452868 /* WelcomeViewController.swift in Sources */,
