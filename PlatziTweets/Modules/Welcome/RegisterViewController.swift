@@ -75,6 +75,7 @@ class RegisterViewController: UIViewController {
             case .success(let data):
                 NotificationBanner(subtitle: "Welcome \(data.user.names)",
                                    style: .success).show()
+                SimpleNetworking.setAuthenticationHeader(prefix: "", token: data.token) // Save Token for next requests
                 return
             case .error(let error):
                 NotificationBanner(title: "Error",
