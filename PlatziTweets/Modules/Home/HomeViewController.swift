@@ -17,13 +17,20 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     private let cellId = "TweetTableViewCell"
-    private var dataSource = [Post]() // Empty array
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpUI()
         getPosts()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Each time screen is showed, everything here will be executed
+        // We dont execute method to get posts because it will reload the array with same data,
+        // and we want to matain data from AddPostViewController
+//        getPosts()
+        self.tableView.reloadData()
     }
     
     private func setUpUI() {
@@ -56,14 +63,12 @@ class HomeViewController: UIViewController {
 //                return
 //            }
 //        }
-        let user = User(email: "hajduksanchez.dev@gmail.com", names: "Jozek Hajduk", nickname: "@HajdukSanchez")
-        let postLocation = PostLocation(latitude: 0, longitude: 0)
         // Set data
-        self.dataSource = [
-            Post(id: "0", author: user, imageUrl: "", text: "Tweet 1", videoUrl: "", location: postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
-            Post(id: "1", author: user, imageUrl: "", text: "Tweet 2", videoUrl: "", location: postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
-            Post(id: "2", author: user, imageUrl: "", text: "Tweet 3", videoUrl: "", location: postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
-            Post(id: "3", author: user, imageUrl: "", text: "Tweet 4", videoUrl: "", location: postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
+        Constants.postsDataSource = [
+            Post(id: "0", author: Constants.user, imageUrl: "", text: "Tweet 1", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
+            Post(id: "1", author: Constants.user, imageUrl: "", text: "Tweet 2", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
+            Post(id: "2", author: Constants.user, imageUrl: "", text: "Tweet 3", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
+            Post(id: "3", author: Constants.user, imageUrl: "", text: "Tweet 4", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
         ]
         // Reload table
         self.tableView.reloadData()
@@ -74,7 +79,7 @@ class HomeViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return Constants.postsDataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,7 +87,7 @@ extension HomeViewController: UITableViewDataSource {
         
         if let cell = cell as? TweetTableViewCell {
             // Setup cell
-            cell.setUpCell(with: dataSource[indexPath.row])
+            cell.setUpCell(with: Constants.postsDataSource[indexPath.row])
         }
         
         return cell
