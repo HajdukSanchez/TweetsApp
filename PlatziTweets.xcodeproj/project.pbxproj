@@ -26,6 +26,7 @@
 		B14C2D9D2B8CB50400E1B06D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C2D9C2B8CB50400E1B06D /* HomeViewController.swift */; };
 		B14C2DA12B8CB59D00E1B06D /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C2D9F2B8CB59D00E1B06D /* TweetTableViewCell.swift */; };
 		B14C2DA22B8CB59D00E1B06D /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14C2DA02B8CB59D00E1B06D /* TweetTableViewCell.xib */; };
+		B14C2DA42B8CC66800E1B06D /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C2DA32B8CC66800E1B06D /* AddPostViewController.swift */; };
 		B1CBACCD2B8928F700A01E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBACCC2B8928F700A01E75 /* AppDelegate.swift */; };
 		B1CBACCF2B8928F700A01E75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBACCE2B8928F700A01E75 /* SceneDelegate.swift */; };
 		B1CBACD12B8928F700A01E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBACD02B8928F700A01E75 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 		B14C2D9C2B8CB50400E1B06D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B14C2D9F2B8CB59D00E1B06D /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		B14C2DA02B8CB59D00E1B06D /* TweetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
+		B14C2DA32B8CC66800E1B06D /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		B1CBACC92B8928F700A01E75 /* PlatziTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlatziTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CBACCC2B8928F700A01E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1CBACCE2B8928F700A01E75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				B14C2D9E2B8CB58300E1B06D /* Cells */,
 				B10593B22B89726000452868 /* Home.storyboard */,
 				B14C2D9C2B8CB50400E1B06D /* HomeViewController.swift */,
+				B14C2DA32B8CC66800E1B06D /* AddPostViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				B10593B02B896C6B00452868 /* RegisterViewController.swift in Sources */,
 				B10593AE2B896C6300452868 /* LoginViewController.swift in Sources */,
 				B10593CA2B89764900452868 /* PostLocation.swift in Sources */,
+				B14C2DA42B8CC66800E1B06D /* AddPostViewController.swift in Sources */,
 				B1CBACCF2B8928F700A01E75 /* SceneDelegate.swift in Sources */,
 				B10593B62B8975CA00452868 /* LoginResponse.swift in Sources */,
 				B10593B82B8975D500452868 /* ErrorResponse.swift in Sources */,
