@@ -70,6 +70,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <gestureRecognizers/>
             <connections>
                 <outlet property="dateLabel" destination="P8o-hM-Obh" id="uMa-hF-Izr"/>
                 <outlet property="messageLabel" destination="h2i-gH-5sH" id="vhE-IJ-UQB"/>

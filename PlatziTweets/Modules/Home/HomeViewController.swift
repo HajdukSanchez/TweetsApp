@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setUpUI() {
+        tableView.delegate = self
         // Setup data soruce
         tableView.dataSource = self
         // register cell
@@ -73,6 +74,11 @@ class HomeViewController: UIViewController {
         // Reload table
         self.tableView.reloadData()
     }
+    
+    private func deletePostAt(indexPath: IndexPath) {
+        Constants.postsDataSource.remove(at: indexPath.row) // Delete from data source
+        self.tableView.deleteRows(at: [indexPath], with: .bottom) // Delete from table UI
+    }
 
 }
 
@@ -93,4 +99,15 @@ extension HomeViewController: UITableViewDataSource {
         return cell
     }
     
+}
+
+// MARK: - UITableViewDelegate
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = UIContextualAction(style: .destructive, title: "Delete") {  _, _, _ in
+            self.deletePostAt(indexPath: indexPath)
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [item])
+        return swipeActions
+    }
 }
