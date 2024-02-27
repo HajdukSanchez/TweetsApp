@@ -20,11 +20,12 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fUy-4k-wZJ">
                                 <rect key="frame" x="0.0" y="155" width="430" height="777"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddu-GK-Lmh">
-                                <rect key="frame" x="335" y="843" width="75" height="35"/>
+                                <rect key="frame" x="313" y="843" width="97" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="New post"/>
                                 <connections>
                                     <segue destination="rhC-lM-IoZ" kind="presentation" modalPresentationStyle="fullScreen" id="bcv-Ic-GtB"/>
                                 </connections>
@@ -73,7 +74,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="diN-MQ-BF9">
-                                <rect key="frame" x="20" y="73" width="390" height="187"/>
+                                <rect key="frame" x="20" y="73.000000000000014" width="390" height="231.33333333333337"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bx3-KS-xPd">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="120"/>
@@ -81,13 +82,20 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="9yM-aQ-akn"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7h3-dT-Agr">
+                                        <rect key="frame" x="0.0" y="130" width="390" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Open camera"/>
+                                        <connections>
+                                            <action selector="openCameraAction" destination="rhC-lM-IoZ" eventType="touchUpInside" id="H6Q-Xm-Klb"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg3-N0-XZi">
-                                        <rect key="frame" x="0.0" y="130" width="390" height="57"/>
+                                        <rect key="frame" x="0.0" y="174.33333333333334" width="390" height="57"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="57" id="cID-CU-agS"/>
@@ -102,7 +110,17 @@
                                             <action selector="addPostAction" destination="rhC-lM-IoZ" eventType="touchUpInside" id="vAy-K9-E31"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ITY-aH-pKG">
+                                        <rect key="frame" x="0.0" y="231.33333333333331" width="390" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="VR4-Gr-ydr"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ITY-aH-pKG" secondAttribute="trailing" id="6J6-m4-eTg"/>
+                                    <constraint firstItem="ITY-aH-pKG" firstAttribute="leading" secondItem="diN-MQ-BF9" secondAttribute="leading" id="VSe-Rk-xve"/>
+                                </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottomImage" translatesAutoresizingMaskIntoConstraints="NO" id="vZf-ev-yQR">
                                 <rect key="frame" x="0.0" y="807" width="430" height="125"/>
@@ -130,6 +148,7 @@
                     </view>
                     <connections>
                         <outlet property="postTextView" destination="Bx3-KS-xPd" id="2yf-Ud-v56"/>
+                        <outlet property="previewImageView" destination="ITY-aH-pKG" id="YkT-74-jik"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCt-vg-Xkb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

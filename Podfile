@@ -14,6 +14,7 @@ target 'PlatziTweets' do
   pod 'Firebase/Storage'
   pod 'Firebase/Analytics'
   pod 'FirebaseCrashlytics'
+  pod 'FirebaseFirestore'
 
   # post install
   post_install do |installer|
