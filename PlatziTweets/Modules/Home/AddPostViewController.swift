@@ -10,6 +10,8 @@ import Simple_Networking
 import SVProgressHUD
 import NotificationBannerSwift
 import FirebaseStorage
+import AVKit
+import MobileCoreServices
 
 class AddPostViewController: UIViewController {
     
@@ -19,7 +21,8 @@ class AddPostViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func addPostAction() {
-        uploadPhotoToFirebase()
+        // uploadPhotoToFirebase()
+        openVideoCamera()
     }
     
     @IBAction func dismissAction() {
@@ -32,9 +35,28 @@ class AddPostViewController: UIViewController {
     
     // MARK: - Properties
     private var imagePicker: UIImagePickerController?
+    private var currentVideoUrl: URL?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    private func openVideoCamera() {
+        imagePicker = UIImagePickerController()
+        imagePicker?.sourceType = .camera
+        imagePicker?.mediaTypes = [kUTTypeMovie as String]
+        imagePicker?.cameraFlashMode = .off
+        imagePicker?.cameraCaptureMode = .video
+        imagePicker?.videoQuality = .typeMedium
+        imagePicker?.videoMaximumDuration = TimeInterval(5) // Max time of video
+        imagePicker?.allowsEditing = true
+        imagePicker?.delegate = self
+        
+        guard let imagePicker = imagePicker else {
+            return
+        }
+        
+        present(imagePicker, animated: true, completion: nil)
     }
     
     private func openCamera() {
@@ -136,6 +158,17 @@ extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationCo
             self.previewImageView.isHidden = false
             // Get image from camera
             self.previewImageView.image = info[.originalImage] as? UIImage
+        }
+        
+        // Validate video return video data
+        if info.keys.contains(.mediaURL), let recordedVideoURL = (info[.mediaURL] as? URL)?.absoluteURL {
+            let avPlayer = AVPlayer(url: recordedVideoURL)
+            let avPlayerController = AVPlayerViewController() // Show new window with video
+            avPlayerController.player = avPlayer
+            
+            present(avPlayerController, animated: true) {
+                avPlayerController.player?.play() // Start video
+            }
         }
     }
 }

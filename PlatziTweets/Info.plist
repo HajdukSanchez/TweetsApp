@@ -2,6 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -21,7 +22,11 @@
 			</array>
 		</dict>
 	</dict>
+    
     <key>NSCameraUsageDescription</key>
     <string>We are going to use your camera, for your tweets</string>
+    
+    <key>NSMicrophoneUsageDescription</key>
+    <string>We are going to use your microphone, for your tweets</string>
 </dict>
 </plist>
