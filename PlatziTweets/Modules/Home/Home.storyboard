@@ -43,7 +43,13 @@
                             <constraint firstAttribute="bottom" secondItem="fUy-4k-wZJ" secondAttribute="bottom" id="xGF-Vf-eQA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweets" id="f1Y-m2-FfC"/>
+                    <navigationItem key="navigationItem" title="Tweets" id="f1Y-m2-FfC">
+                        <barButtonItem key="rightBarButtonItem" title="See Map" id="Va9-mT-ZlC">
+                            <connections>
+                                <segue destination="jJm-Xs-mHS" kind="show" identifier="showMap" id="o7v-5L-g0H"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="fUy-4k-wZJ" id="g38-3L-YKK"/>
                     </connections>
@@ -51,6 +57,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="994.6564885496183" y="4.9295774647887329"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="Vet-8w-PP2">
+            <objects>
+                <viewController id="jJm-Xs-mHS" customClass="MapViewController" customModule="PlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Mz-sa-UZc">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HgW-g0-4bi">
+                                <rect key="frame" x="0.0" y="155" width="430" height="777"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="E3e-Rj-RXd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HgW-g0-4bi" firstAttribute="top" secondItem="E3e-Rj-RXd" secondAttribute="top" id="1Sc-Jc-82U"/>
+                            <constraint firstAttribute="bottom" secondItem="HgW-g0-4bi" secondAttribute="bottom" id="GGM-GK-6ht"/>
+                            <constraint firstItem="HgW-g0-4bi" firstAttribute="leading" secondItem="E3e-Rj-RXd" secondAttribute="leading" id="cmh-jj-FVc"/>
+                            <constraint firstItem="HgW-g0-4bi" firstAttribute="trailing" secondItem="E3e-Rj-RXd" secondAttribute="trailing" id="lRY-9S-OVa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="f2I-jF-Ean"/>
+                    <connections>
+                        <outlet property="mapContainerView" destination="HgW-g0-4bi" id="vV1-70-84M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7FA-6E-Ac9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1943.7209302325582" y="-361.15879828326183"/>
         </scene>
         <!--Add Post View Controller-->
         <scene sceneID="gOP-Js-vVo">
@@ -166,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCt-vg-Xkb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="5"/>
+            <point key="canvasLocation" x="1944" y="428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FQi-FO-eq6">
@@ -189,7 +226,7 @@
     </scenes>
     <resources>
         <image name="bottomImage" width="351.5" height="123"/>
-        <image name="video.fill" catalog="system" width="128" height="81"/>
+        <image name="video.fill" catalog="system" width="32" height="32"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -197,7 +234,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

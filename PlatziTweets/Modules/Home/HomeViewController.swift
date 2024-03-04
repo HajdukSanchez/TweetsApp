@@ -67,10 +67,10 @@ class HomeViewController: UIViewController {
 //        }
         // Set data
         Constants.postsDataSource = [
-            Post(id: "0", author: Constants.user, imageUrl: "", text: "Tweet 1", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
-            Post(id: "1", author: Constants.user, imageUrl: "", text: "Tweet 2", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
-            Post(id: "2", author: Constants.user, imageUrl: "", text: "Tweet 3", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
-            Post(id: "3", author: Constants.user, imageUrl: "", text: "Tweet 4", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: ""),
+            Post(id: "0", author: Constants.user, imageUrl: "", text: "Tweet 1", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: true, createdAt: ""),
+            Post(id: "1", author: Constants.user, imageUrl: "", text: "Tweet 2", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: true, createdAt: ""),
+            Post(id: "2", author: Constants.user, imageUrl: "", text: "Tweet 3", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: true, createdAt: ""),
+            Post(id: "3", author: Constants.user, imageUrl: "", text: "Tweet 4", videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: true, createdAt: ""),
         ]
         // Reload table
         self.tableView.reloadData()
@@ -119,5 +119,18 @@ extension HomeViewController: UITableViewDelegate {
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [item])
         return swipeActions
+    }
+}
+
+// MARK: - Navigation
+extension HomeViewController {
+    // This method will be called, when we made a transition between screens (only with storyboards)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Validate spected segue
+        if segue.identifier == "showMap",
+           let mapViewContoller = segue.destination as? MapViewController {
+           // Here we know, we are going to move to this specific screen
+            mapViewContoller.posts = Constants.postsDataSource.filter { $0.hasLocation }
+        }
     }
 }

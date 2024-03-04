@@ -23,6 +23,7 @@
 		B10593C82B89764200452868 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10593C72B89764200452868 /* Post.swift */; };
 		B10593CA2B89764900452868 /* PostLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10593C92B89764900452868 /* PostLocation.swift */; };
 		B10593CC2B89782B00452868 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10593CB2B89782B00452868 /* EndPoints.swift */; };
+		B11BC33E2B95F8A200C21053 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11BC33D2B95F8A200C21053 /* MapViewController.swift */; };
 		B14C2D9D2B8CB50400E1B06D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C2D9C2B8CB50400E1B06D /* HomeViewController.swift */; };
 		B14C2DA12B8CB59D00E1B06D /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C2D9F2B8CB59D00E1B06D /* TweetTableViewCell.swift */; };
 		B14C2DA22B8CB59D00E1B06D /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14C2DA02B8CB59D00E1B06D /* TweetTableViewCell.xib */; };
@@ -55,6 +56,7 @@
 		B10593C72B89764200452868 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B10593C92B89764900452868 /* PostLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocation.swift; sourceTree = "<group>"; };
 		B10593CB2B89782B00452868 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		B11BC33D2B95F8A200C21053 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B14C2D9C2B8CB50400E1B06D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B14C2D9F2B8CB59D00E1B06D /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		B14C2DA02B8CB59D00E1B06D /* TweetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				B10593B22B89726000452868 /* Home.storyboard */,
 				B14C2D9C2B8CB50400E1B06D /* HomeViewController.swift */,
 				B14C2DA32B8CC66800E1B06D /* AddPostViewController.swift */,
+				B11BC33D2B95F8A200C21053 /* MapViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				B10593C62B89763A00452868 /* User.swift in Sources */,
 				B10593AC2B896C5800452868 /* WelcomeViewController.swift in Sources */,
 				B1CBACCD2B8928F700A01E75 /* AppDelegate.swift in Sources */,
+				B11BC33E2B95F8A200C21053 /* MapViewController.swift in Sources */,
 				B14C2DA62B8CCC9100E1B06D /* Constants.swift in Sources */,
 				B10593C82B89764200452868 /* Post.swift in Sources */,
 				B10593CC2B89782B00452868 /* EndPoints.swift in Sources */,

@@ -28,5 +28,11 @@
     
     <key>NSMicrophoneUsageDescription</key>
     <string>We are going to use your microphone, for your tweets</string>
+    
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We use your location for Tweet</string>
+        
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>We use your location for Tweet</string>
 </dict>
 </plist>
