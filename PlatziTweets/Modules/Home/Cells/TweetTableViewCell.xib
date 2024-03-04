@@ -52,6 +52,9 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="openVideoAction" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fCQ-eP-S6W"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/10/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8o-hM-Obh">
                                 <rect key="frame" x="0.0" y="343.66666666666669" width="43.333333333333336" height="13.333333333333314"/>
@@ -83,7 +86,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="video.fill" catalog="system" width="128" height="81"/>
+        <image name="video.fill" catalog="system" width="32" height="32"/>
         <systemColor name="systemGray2Color">
             <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
