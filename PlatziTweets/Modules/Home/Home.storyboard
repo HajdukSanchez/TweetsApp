@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -74,7 +75,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="diN-MQ-BF9">
-                                <rect key="frame" x="20" y="73.000000000000014" width="390" height="231.33333333333337"/>
+                                <rect key="frame" x="20" y="73" width="390" height="275.66666666666669"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bx3-KS-xPd">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="120"/>
@@ -89,13 +90,24 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7h3-dT-Agr">
                                         <rect key="frame" x="0.0" y="130" width="390" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Open camera"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Add media"/>
                                         <connections>
-                                            <action selector="openCameraAction" destination="rhC-lM-IoZ" eventType="touchUpInside" id="H6Q-Xm-Klb"/>
+                                            <action selector="addMediaAction" destination="rhC-lM-IoZ" eventType="touchUpInside" id="H6Q-Xm-Klb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7L5-Gg-h2a">
+                                        <rect key="frame" x="0.0" y="174.33333333333334" width="390" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="See video" imagePadding="10">
+                                            <imageReference key="image" image="video.fill" catalog="system" symbolScale="medium"/>
+                                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="openVideoPreviewAction" destination="rhC-lM-IoZ" eventType="touchUpInside" id="e6u-1j-iMP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg3-N0-XZi">
-                                        <rect key="frame" x="0.0" y="174.33333333333334" width="390" height="57"/>
+                                        <rect key="frame" x="0.0" y="218.66666666666669" width="390" height="57"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="57" id="cID-CU-agS"/>
@@ -107,11 +119,11 @@
                                             <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="addPostAction" destination="rhC-lM-IoZ" eventType="touchUpInside" id="vAy-K9-E31"/>
+                                            <action selector="publishPostAction" destination="rhC-lM-IoZ" eventType="touchUpInside" id="vAy-K9-E31"/>
                                         </connections>
                                     </button>
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ITY-aH-pKG">
-                                        <rect key="frame" x="0.0" y="231.33333333333331" width="390" height="200"/>
+                                        <rect key="frame" x="0.0" y="275.66666666666669" width="390" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="VR4-Gr-ydr"/>
                                         </constraints>
@@ -149,6 +161,7 @@
                     <connections>
                         <outlet property="postTextView" destination="Bx3-KS-xPd" id="2yf-Ud-v56"/>
                         <outlet property="previewImageView" destination="ITY-aH-pKG" id="YkT-74-jik"/>
+                        <outlet property="videoButton" destination="7L5-Gg-h2a" id="B3j-xN-NP0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCt-vg-Xkb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -176,6 +189,7 @@
     </scenes>
     <resources>
         <image name="bottomImage" width="351.5" height="123"/>
+        <image name="video.fill" catalog="system" width="128" height="81"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -183,7 +197,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

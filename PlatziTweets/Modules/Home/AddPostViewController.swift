@@ -18,27 +18,55 @@ class AddPostViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var previewImageView: UIImageView!
+    @IBOutlet weak var videoButton: UIButton!
     
     // MARK: - IBActions
-    @IBAction func addPostAction() {
+    @IBAction func publishPostAction() {
         // uploadPhotoToFirebase()
-        openVideoCamera()
+        uploadVideoToFirebase()
     }
     
     @IBAction func dismissAction() {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func openCameraAction() {
-        openCamera()
+    @IBAction func addMediaAction() {
+        let alert = UIAlertController(title: "Media", message: "Select an option", preferredStyle: .actionSheet)
+        // Camera option
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        // Video option
+        alert.addAction(UIAlertAction(title: "Video", style: .default, handler: { _ in
+            self.openVideoCamera()
+        }))
+        // Default option
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        
+        present(alert, animated: true)
+    }
+    
+    @IBAction func openVideoPreviewAction() {
+        guard let currentVideoUrl = currentVideoUrl else {
+            return
+        }
+        let avPlayer = AVPlayer(url: currentVideoUrl)
+        let avPlayerController = AVPlayerViewController() // Show new window with video
+        avPlayerController.player = avPlayer
+        
+        present(avPlayerController, animated: true) {
+            avPlayerController.player?.play() // Start video
+        }
     }
     
     // MARK: - Properties
     private var imagePicker: UIImagePickerController?
     private var currentVideoUrl: URL?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.videoButton.isHidden = true // hide video button
     }
     
     private func openVideoCamera() {
@@ -78,8 +106,8 @@ class AddPostViewController: UIViewController {
         // Validate photo and compress image to convert into data
         guard let imageToSave = previewImageView.image,
               let imageData: Data = imageToSave.jpegData(compressionQuality: 0.1) else {
-                  return
-              }
+            return
+        }
         // Show loader
         SVProgressHUD.show()
         // Create config to save photo
@@ -109,7 +137,7 @@ class AddPostViewController: UIViewController {
                     
                     folderReference.downloadURL { (url: URL?, error: Error?) in
                         let downloadUrl = url?.absoluteString ?? ""
-                        self.savePost(imageUrl: downloadUrl)
+                        self.savePost(imageUrl: downloadUrl, videoUrl: nil)
                     }
                 }
             }
@@ -117,30 +145,73 @@ class AddPostViewController: UIViewController {
         
     }
     
-    private func savePost(imageUrl image: String) {
+    private func uploadVideoToFirebase() {
+        // Validate photo and compress image to convert into data
+        guard let currentVideoSaveUrl = self.currentVideoUrl,
+              let videoData: Data = try? Data(contentsOf: currentVideoSaveUrl) else {
+            return
+        }
+        // Show loader
+        SVProgressHUD.show()
+        // Create config to save photo
+        let metaDataConfig = StorageMetadata()
+        metaDataConfig.contentType = "video/MP4"
+        // Crerate reference to firebase storage
+        let storage = Storage.storage()
+        // Add name to new image
+        let randomName = Int.random(in: 100...10000)
+        // Create reference to directory where photo will be saved
+        let folderReference = storage.reference(withPath: "tweets_videos/\(randomName).mp4")
+        // Upload photo in other thread
+        DispatchQueue.global(qos: .background).async {
+            folderReference.putData(videoData, metadata: metaDataConfig) { (metadata:StorageMetadata?, error: Error?) in
+                // Go back to main thread
+                DispatchQueue.main.async {
+                    // Stop loader
+                    SVProgressHUD.dismiss()
+                    // Validate error
+                    if let error = error {
+                        NotificationBanner(
+                            title: "Error",
+                            subtitle: error.localizedDescription,
+                            style: .warning).show()
+                        return
+                    }
+                    
+                    folderReference.downloadURL { (url: URL?, error: Error?) in
+                        let downloadUrl = url?.absoluteString ?? ""
+                        self.savePost(imageUrl: nil, videoUrl: downloadUrl)
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    private func savePost(imageUrl image: String?, videoUrl video: String?) {
         SVProgressHUD.show()
         let newText = postTextView.text ?? ""
-//        let request = PostRequest(text: newText, imageUrl: "", videoUrl: "", location: nil)
+        //        let request = PostRequest(text: newText, imageUrl: "", videoUrl: "", location: nil)
         // (Endpoint not work)
-//        SN.post(endpoint: EndPoints.post) { (response: SNResultWithEntity<Post, ErrorResponse>) in
-//            SVProgressHUD.dismiss()
-//            
-//            switch response {
-//            case .success(let post):
-//                self.dismissAction()
-//            case .error(let error):
-//                NotificationBanner(title: "Error",
-//                                   subtitle: "There is a problem authenticated user: \(error.localizedDescription)",
-//                                   style: .danger).show()
-//                return
-//            case .errorResult(let entity):
-//                NotificationBanner(title: "Error",
-//                                   subtitle: "There is a problem with server: \(entity)",
-//                                   style: .warning).show()
-//                return
-//            }
-//        }
-        let newPost = Post(id: "0", author: Constants.user, imageUrl: image, text: newText, videoUrl: "", location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: "")
+        //        SN.post(endpoint: EndPoints.post) { (response: SNResultWithEntity<Post, ErrorResponse>) in
+        //            SVProgressHUD.dismiss()
+        //
+        //            switch response {
+        //            case .success(let post):
+        //                self.dismissAction()
+        //            case .error(let error):
+        //                NotificationBanner(title: "Error",
+        //                                   subtitle: "There is a problem authenticated user: \(error.localizedDescription)",
+        //                                   style: .danger).show()
+        //                return
+        //            case .errorResult(let entity):
+        //                NotificationBanner(title: "Error",
+        //                                   subtitle: "There is a problem with server: \(entity)",
+        //                                   style: .warning).show()
+        //                return
+        //            }
+        //        }
+        let newPost = Post(id: "0", author: Constants.user, imageUrl: image, text: newText, videoUrl: video, location: Constants.postLocation, hasVideo: false, hasImage: false, hasLocation: false, createdAt: "")
         Constants.postsDataSource.insert(newPost, at: 0)
         dismissAction()
         SVProgressHUD.dismiss()
@@ -162,13 +233,8 @@ extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         // Validate video return video data
         if info.keys.contains(.mediaURL), let recordedVideoURL = (info[.mediaURL] as? URL)?.absoluteURL {
-            let avPlayer = AVPlayer(url: recordedVideoURL)
-            let avPlayerController = AVPlayerViewController() // Show new window with video
-            avPlayerController.player = avPlayer
-            
-            present(avPlayerController, animated: true) {
-                avPlayerController.player?.play() // Start video
-            }
+            self.videoButton.isHidden = false
+            self.currentVideoUrl = recordedVideoURL
         }
     }
 }
