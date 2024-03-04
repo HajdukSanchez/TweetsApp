@@ -34,5 +34,8 @@
         
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>We use your location for Tweet</string>
+    
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
 </dict>
 </plist>
